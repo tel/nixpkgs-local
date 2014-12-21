@@ -10,9 +10,12 @@ stdenv.mkDerivation rec {
     sha256 = "0h909jkf3w4k3vhnblqwqkxhg7p3l12mjhp339g7jgdb65qh7ssh";
   };
 
-  patchPhase = ''
-    sed '15,20d' $src/Makefile > Makefile
-  '';
+  # We'll just skip this phase for now since we totally hijack the
+  # build phase as well.
+  #
+  # patchPhase = ''
+  #   sed '15,20d' $src/Makefile > Makefile
+  # '';
 
   buildPhase = ''
     cc -c -Wall -O2 -I ${sass.libSass}/include  sassc.c -o sassc.o
