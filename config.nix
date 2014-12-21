@@ -5,6 +5,7 @@
       libSass = pkgs.callPackage ./local/etc/sass/libSass {};
       sassc   = pkgs.callPackage ./local/etc/sass/sassc {};
     };
+    flow = pkgs.callPackage ./local/javascript/flow {};
     haskellPackages =
       pkgs.recurseIntoAttrs (pkgs.haskellPackages.override {
         extension = self : super :
